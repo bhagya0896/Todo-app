@@ -66,10 +66,10 @@ function App() {
             <>
               <AddTodo addTodo={addTodo}  todos={todos} setTodos={setTodos} edittodo={edittodo} seteditTodo={seteditTodo} />
               <TodoList todos={todos} setTodos={setTodos} edittodo={edittodo} seteditTodo={seteditTodo} />
-         {todos.length===0?"": 
-        <div class="text-center">
-           <button type="button" class="btn btn-secondary btn-sm" onClick={()=>handleFilter()}>Clear Done Todos</button>
-        </div>
+          {todos.length===0?"": 
+       
+           <button type="button" class="btn btn-dark btn-sm float-left ml-5" onClick={()=>handleFilter()}>Clear Done Todos</button>
+       
         }
             </>
           </Route>
