@@ -50,7 +50,13 @@ function App() {
       localStorage.setItem('todos',JSON.stringify(todos));
     },[todos])
 
-
+  const handleFilter = () => {
+    let filtered = todos.filter(task => {
+      return !task.complete;
+    });
+    setTodos(filtered);
+     localStorage.setItem('todos',JSON.stringify(todos));
+  }
   return (
     <>
       <Router>
@@ -62,7 +68,7 @@ function App() {
               <TodoList todos={todos} setTodos={setTodos} edittodo={edittodo} seteditTodo={seteditTodo} />
          {todos.length===0?"": 
         <div class="text-center">
-           <button type="button" class="btn btn-secondary btn-sm mr-5" onClick={()=>handleFilter()}>Clear Done Todos</button>
+           <button type="button" class="btn btn-secondary btn-sm" onClick={()=>handleFilter()}>Clear Done Todos</button>
         </div>
         }
             </>
