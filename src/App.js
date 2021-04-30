@@ -46,13 +46,6 @@ function App() {
     let [todos,setTodos] = useState(initTodo);
     let [edittodo,seteditTodo] = useState(null);
   
-  const handleFilter = () => {
-    let filtered = todos.filter(task => {
-      return !task.complete;
-    });
-    setTodos(filtered);
-     localStorage.setItem('todos',JSON.stringify(todos));
-  }
   
     useEffect(()=>{
       localStorage.setItem('todos',JSON.stringify(todos));
@@ -68,11 +61,7 @@ function App() {
             <>
               <AddTodo addTodo={addTodo}  todos={todos} setTodos={setTodos} edittodo={edittodo} seteditTodo={seteditTodo} />
               <TodoList todos={todos} setTodos={setTodos} edittodo={edittodo} seteditTodo={seteditTodo} />
-          {todos.length===0?"": 
-       
-           <button type="button" class="btn btn-dark btn-sm float-left ml-5" onClick={()=>handleFilter()}>Clear Done Todos</button>
-       
-        }
+        
             </>
           </Route>
         
