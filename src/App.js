@@ -45,11 +45,7 @@ function App() {
 
     let [todos,setTodos] = useState(initTodo);
     let [edittodo,seteditTodo] = useState(null);
-
-    useEffect(()=>{
-      localStorage.setItem('todos',JSON.stringify(todos));
-    },[todos])
-
+  
   const handleFilter = () => {
     let filtered = todos.filter(task => {
       return !task.complete;
@@ -57,6 +53,12 @@ function App() {
     setTodos(filtered);
      localStorage.setItem('todos',JSON.stringify(todos));
   }
+  
+    useEffect(()=>{
+      localStorage.setItem('todos',JSON.stringify(todos));
+    },[todos])
+
+
   return (
     <>
       <Router>
